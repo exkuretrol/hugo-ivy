@@ -4,7 +4,7 @@
   <hr>
 
   {{ if eq .Section "posts" }}
-  {{ partial "footer_giscus.html" }}
+  {{ partial "footer_giscus.html" . }}
   {{ end }}
   {{ with .Site.Params.footer }}
   <div class="copyright">{{ . | markdownify }}</div>

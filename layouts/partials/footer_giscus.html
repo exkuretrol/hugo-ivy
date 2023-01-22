@@ -1,9 +1,13 @@
+{{ $dataRepo := $.Site.Params.dataRepo }}
+{{ $dataRepoId := $.Site.Params.dataRepoId }}
+{{ $dataCategory := $.Site.Params.dataCategory }}
+{{ $dataCategoryId := $.Site.Params.dataCategoryId }}
 <script
   src="https://giscus.app/client.js"
-  data-repo="exkuretrol/kuaz.info"
-  data-repo-id="MDEwOlJlcG9zaXRvcnkzODMwNzQ5Nzk="
-  data-category="Announcements"
-  data-category-id="DIC_kwDOFtVCo84CTvcz"
+  data-repo="{{ $dataRepo }}"
+  data-repo-id="{{ $dataRepoId }}"
+  data-category="{{ $dataCategory }}"
+  data-category-id="{{ $dataCategoryId }}"
   data-mapping="pathname"
   data-strict="0"
   data-reactions-enabled="1"
