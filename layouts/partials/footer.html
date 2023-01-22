@@ -1,12 +1,19 @@
   <footer>
-  {{ partial "foot_custom.html" . }}
+  {{ partial "footer_custom.html" . }}
   {{ partial "footer_highlightjs" . }}
-  {{ with .Site.Params.footer }}
   <hr>
+
+  {{ if eq .Section "posts" }}
+  {{ partial "footer_giscus.html" }}
+  {{ end }}
+  {{ with .Site.Params.footer }}
   <div class="copyright">{{ . | markdownify }}</div>
   {{ end }}
   </footer>
   </article>
+
+  {{ $highVer := .Site.Params.highlightjsVersion }}
+  {{ $highCDN := (.Site.Params.highlightjsCDN | default "//cdn.bootcss.com") }}
   {{ template "_internal/google_analytics.html" . }}
   </body>
 </html>
