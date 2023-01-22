@@ -1,0 +1,17 @@
+{{ $KaTeXCDN := "https://cdnjs.cloudflare.com/ajax/libs/KaTeX"}}
+{{ $KaTeXVer := "0.16.4" }}
+<link rel="stylesheet" href="{{ $KaTeXCDN }}/{{ $KaTeXVer }}/katex.min.css">
+<script type="text/javascript" defer src="{{ $KaTeXCDN }}/{{ $KaTeXVer }}/katex.min.js"></script>
+<script type="text/javascript" defer src="{{ $KaTeXCDN }}/{{ $KaTeXVer }}/contrib/auto-render.min.js" onload="renderMathInElement(document.body);">
+    renderMathInElement(
+        document.body,
+        {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "\\[", right: "\\]", display: true},
+                {left: "$", right: "$", display: false},
+                {left: "\\(", right: "\\)", display: false}
+            ]
+        }
+    );
+</script>

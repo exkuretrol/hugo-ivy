@@ -1,7 +1,8 @@
   <footer>
-  {{ partial "footer_custom.html" . }}
-  {{ partial "footer_highlightjs" . }}
   <hr>
+  {{ if .Params.math }}
+  {{ partial "footer_math.html" . }}
+  {{ end }}
 
   {{ if eq .Section "posts" }}
   {{ partial "footer_giscus.html" . }}
@@ -11,9 +12,6 @@
   {{ end }}
   </footer>
   </article>
-
-  {{ $highVer := .Site.Params.highlightjsVersion }}
-  {{ $highCDN := (.Site.Params.highlightjsCDN | default "//cdn.bootcss.com") }}
   {{ template "_internal/google_analytics.html" . }}
   </body>
 </html>
