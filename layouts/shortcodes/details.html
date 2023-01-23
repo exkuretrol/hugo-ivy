@@ -1,0 +1,16 @@
+{{ $open := .Get "open" | default "false" }}
+
+<details
+    {{ if eq $open "true"}}
+        open
+    {{ end }}
+>
+    <summary>
+        {{ i18n "click_to_open" | default "Click to Open" }}
+        {{ if .Get "title" }}
+            {{ .Get "title" | markdownify }}
+        {{ end }}
+
+    </summary>
+    {{ .Inner | markdownify }}
+</details>
