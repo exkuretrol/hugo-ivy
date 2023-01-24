@@ -1,12 +1,14 @@
   <footer>
   <hr>
+  {{ if eq .Section "posts" }}
+  {{ partial "prev_next_nav.html" . }}
+  {{ partial "footer_giscus.html" . }}
+  {{ end }}
+
   {{ if .Params.math }}
   {{ partial "footer_math.html" . }}
   {{ end }}
 
-  {{ if eq .Section "posts" }}
-  {{ partial "footer_giscus.html" . }}
-  {{ end }}
   {{ with .Site.Params.footer }}
   <div class="copyright">{{ . | markdownify }}</div>
   {{ end }}

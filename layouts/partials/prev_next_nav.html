@@ -1,0 +1,17 @@
+<div class="post-nav">
+    {{ if and .PrevInSection }}
+        {{ with .PrevInSection }}
+        <a class="nav-prev" href="{{ .RelPermalink }}" target="_self">← {{ .Title }}</a>
+        {{ end }}
+    {{ else }}
+        <div class="nav-prev"></div>
+    {{ end }}
+
+    {{ if .NextInSection }}
+        {{ with .NextInSection }}
+        <a class="nav-next" href="{{ .RelPermalink }}" target="_self">{{ .Title }} →</a>
+        {{ end }}
+    {{ else }}
+        <div class="nav-next"></div>
+    {{ end }}
+</div>
