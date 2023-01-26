@@ -1,0 +1,25 @@
+{{ $htmlTable := .Inner | markdownify }}
+{{ $label := i18n "table_label" | default "Table" }}
+{{ $tag := "<table>" }}
+{{ $newTag := "<table" }}
+
+{{ with .Get "id" }}
+    {{ $newTag = printf "<table id='%s'" . }} 
+{{ end }}
+
+{{ with .Get "class" }}
+    {{ $newTag = print $newTag " " . }}
+{{ end }}
+
+{{ $newTag = print $newTag " itemscope itemtype='https://schema.org/Table'>" }}
+
+{{ with .Get "title" }}
+    {{ $caption := printf "<caption itemprop='about'><strong>%s</strong> %s</caption>" $label . }}
+    {{ $newTag = print $newTag $caption }}
+{{ end }}
+
+{{ warnf "%#v" $newTag }}
+{{ $htmlTable := replace $htmlTable $tag $newTag }}
+
+{{ $htmlTable | safeHTML }}
+{{/*  inspire by https://gist.github.com/djibe/7a8ba9516f4495dbd6fdf1d1de7a60fe#file-hugo-shortcode-table-html and improved by kuaz */}}
