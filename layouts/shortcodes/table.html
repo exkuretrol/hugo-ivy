@@ -18,7 +18,6 @@
     {{ $newTag = print $newTag $caption }}
 {{ end }}
 
-{{ warnf "%#v" $newTag }}
 {{ $htmlTable := replace $htmlTable $tag $newTag }}
 
 {{ $htmlTable | safeHTML }}
