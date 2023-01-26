@@ -1,6 +1,6 @@
   <footer>
   <hr>
-  {{ if eq .Section "posts" }}
+  {{ if eq .Section (path.Base .File.Dir) }}
   {{ partial "prev_next_nav.html" . }}
   {{ partial "footer_giscus.html" . }}
   {{ end }}
