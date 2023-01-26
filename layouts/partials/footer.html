@@ -1,19 +1,23 @@
-  <footer>
-  <hr>
-  {{ if eq .Section (path.Base .File.Dir) }}
-  {{ partial "prev_next_nav.html" . }}
-  {{ partial "footer_giscus.html" . }}
-  {{ end }}
+    <footer>
+    <hr>
 
-  {{ if .Params.math }}
-  {{ partial "footer_math.html" . }}
-  {{ end }}
+    {{ if and (.File) (eq .Section (path.Base .File.Dir)) }}
+        {{ partial "prev_next_nav.html" . }}
+        {{ partial "footer_giscus.html" . }}
+    {{ end }}
 
-  {{ with .Site.Params.footer }}
-  <div class="copyright">{{ . | markdownify }}</div>
-  {{ end }}
-  </footer>
-  </article>
-  {{ template "_internal/google_analytics.html" . }}
-  </body>
+    {{ if .Params.math }}
+        {{ partial "footer_math.html" . }}
+    {{ end }}
+
+    {{ with .Site.Params.footer }}
+        <div class="copyright">{{ . | markdownify }}</div>
+    {{ end }}
+
+    </footer>
+    </article>
+
+    {{ template "_internal/google_analytics.html" . }}
+
+    </body>
 </html>
