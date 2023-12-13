@@ -3,7 +3,7 @@
 {{ .Content }}
 
 {{ if .IsHome }}
-{{ $.Scratch.Set "pages" .Site.RegularPages }}
+{{ $.Scratch.Set "pages" (where .Site.RegularPages "Section" "posts" )}}
 {{ else }}
 {{ $.Scratch.Set "pages" .Pages }}
 {{ end }}
